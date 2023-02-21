@@ -1,13 +1,8 @@
 import React, {useState} from 'react'
-import { TodoForm } from '../todoForm'
 import {IoCloseSharp} from 'react-icons/io5'
 
 
 export const Todo = ({todos, completeTodo, removeTodo}) => {
-  const [edit, setEdit] = useState({
-    id: null,
-    value: ''
-  })
 
   return todos.map((todo, index) => (
     <div 
