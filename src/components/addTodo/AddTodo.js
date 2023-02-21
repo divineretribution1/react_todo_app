@@ -1,10 +1,10 @@
 import React, {useState, useEffect, useRef} from 'react'
 
-export const TodoForm = (props) => {
+export const AddTodo = ({onSubmit}) => {
   const [input, setInput] = useState('')    
   const [id, setId] = useState(0);
   
-  const giveId=()=>{
+  const giveId=()=> {
       setId(id + 1)
       return id;
   }
@@ -18,7 +18,7 @@ export const TodoForm = (props) => {
   const handleSubmit = e => {
     e.preventDefault()
 
-    props.onSubmit({
+    onSubmit({
       id: giveId(),
       text: input
     });
