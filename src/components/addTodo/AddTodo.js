@@ -3,13 +3,13 @@ import React, {useState, useEffect, useRef} from 'react'
 export const AddTodo = ({onSubmit}) => {
   const [input, setInput] = useState('')    
   const [id, setId] = useState(0);
-  
+  const inputRef = useRef(null)
   const giveId=()=> {
       setId(id + 1)
       return id;
   }
 
-  const inputRef = useRef(null)
+
 
   useEffect(() => {
     inputRef.current.focus()

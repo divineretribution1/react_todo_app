@@ -25,6 +25,16 @@ export const TodoScreen = () => {
     setTodos(updatedTodos)
   }
 
+  const updateTodo = (id, text) => {
+    const updatedTodos = todos.map(todo => {
+      if(todo.id === id) {
+        todo.text = text
+      }
+      return todo
+    })
+    setTodos(updatedTodos)
+  }
+
   const removeTodo = id => {
     const removeArr = [...todos].filter(todo => todo.id !==id)
 
@@ -39,6 +49,7 @@ export const TodoScreen = () => {
         todos={todos} 
         completeTodo={completeTodo}
         removeTodo={removeTodo}
+        updateTodo={updateTodo}
       />
     </div>
   )
