@@ -1,10 +1,11 @@
 import './App.css';
-import { TodoScreen } from './components';
+import { TodoScreen } from './screen/TodoScreen';
+
 
 function App() {
   return (
     <div className="todo-app">
-     <TodoScreen />
+      <TodoScreen />
     </div>
   );
 }

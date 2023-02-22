@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { TodoList } from '../../components'
 import { AddTodo } from '../../components'
 
@@ -6,7 +6,7 @@ export const TodoScreen = () => {
   const [todos, setTodos] = useState([])
 
   const addTodo = todo => {
-    if(!todo.text || /^\s*$/.test(todo.text)) {
+    if (!todo.text || /^\s*$/.test(todo.text)) {
       return
     }
 
@@ -17,7 +17,7 @@ export const TodoScreen = () => {
 
   const completeTodo = id => {
     let updatedTodos = todos.map(todo => {
-      if(todo.id === id) {
+      if (todo.id === id) {
         todo.isComplete = !todo.isComplete
       }
       return todo
@@ -27,7 +27,7 @@ export const TodoScreen = () => {
 
   const updateTodo = (id, text) => {
     const updatedTodos = todos.map(todo => {
-      if(todo.id === id) {
+      if (todo.id === id) {
         todo.text = text
       }
       return todo
@@ -36,17 +36,17 @@ export const TodoScreen = () => {
   }
 
   const removeTodo = id => {
-    const removeArr = [...todos].filter(todo => todo.id !==id)
+    const removeArr = [...todos].filter(todo => todo.id !== id)
 
     setTodos(removeArr)
   }
 
   return (
     <div>
-      <h1>What's the plan for today?</h1>
+      <h1>Tell me your plans</h1>
       <AddTodo onSubmit={addTodo} />
-      <TodoList 
-        todos={todos} 
+      <TodoList
+        todos={todos}
         completeTodo={completeTodo}
         removeTodo={removeTodo}
         updateTodo={updateTodo}
@@ -54,4 +54,3 @@ export const TodoScreen = () => {
     </div>
   )
 }
-

@@ -1,20 +1,18 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
-export const AddTodo = ({onSubmit}) => {
-  const [input, setInput] = useState('')    
+export const AddTodo = ({ onSubmit }) => {
+  const [input, setInput] = useState('')
   const [id, setId] = useState(0);
   const inputRef = useRef(null)
-  const giveId=()=> {
-      setId(id + 1)
-      return id;
+  const giveId = () => {
+    setId(id + 1)
+    return id;
   }
-
-
 
   useEffect(() => {
     inputRef.current.focus()
   })
-  
+
   const handleSubmit = e => {
     e.preventDefault()
 
@@ -32,7 +30,7 @@ export const AddTodo = ({onSubmit}) => {
 
   return (
     <form className="todo-form" onSubmit={handleSubmit}>
-      <input 
+      <input
         type="text"
         placeholder="Add a todo"
         value={input}
@@ -42,7 +40,7 @@ export const AddTodo = ({onSubmit}) => {
         ref={inputRef}
         autocomplete="off"
       />
-      <button 
+      <button
         className="todo-button">add todo</button>
     </form>
   )
